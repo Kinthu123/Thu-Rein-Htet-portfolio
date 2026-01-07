@@ -95,24 +95,19 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
-    image: "img/1.png",
+    image: "/img/1.png",
     className: "md:col-span-1",
   },
   {
     id: 2,
-    image: "img/2.png",
+    image: "/img/2.png",
     className: "md:col-span-1",
   },
   {
     id: 3,
-    image: "img/3.png",
+    image: "/img/3.png",
     className: "md:col-span-1",
   },
-  {
-    id: 4,
-    image: "img/4.png",
-    className: "md:col-span-1",
-  }
 ];
 
 

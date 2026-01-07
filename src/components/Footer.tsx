@@ -1,7 +1,6 @@
 import React from "react";
-import { footer, socialMedia } from "@/data";
+import { footer} from "@/data";
 import Image from "next/image";
-import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -48,6 +47,7 @@ const Footer = () => {
                {footer.contact.email}
              </a>
            </div>
+
         </div>
       </div>
     </footer>
