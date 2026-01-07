@@ -26,7 +26,7 @@ const GLOBE_CONFIG = {
     { location: [48.8566, 2.3522], size: 0.03 }, // Paris
     { location: [50.1109, 8.6821], size: 0.03 }, // Germany
     { location: [37.7749, -122.4194], size: 0.05 }, // San Francisco
-  ],
+  ] as { location: [number, number]; size: number }[],
 };
 
 export function Globe({
