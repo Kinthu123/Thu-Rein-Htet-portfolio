@@ -47,7 +47,7 @@ export const RecentProjects = () => {
                   {/* Footer: Tech Stack & Link */}
                   <div className="flex items-center justify-between mt-auto">
                     <div className="flex items-center">
-                      {iconLists.map((icon, index) => (
+                      {iconLists?.map((icon, index) => (
                         <div
                           key={icon}
                           className="border border-white/[0.1] rounded-full bg-black lg:w-8 lg:h-8 w-7 h-7 flex justify-center items-center overflow-hidden"
