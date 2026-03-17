@@ -90,6 +90,22 @@ export const projects = [
     link: "https://www.behance.net/gallery/241702577/POWERHIVE",
     type: "UI/UX Case Study",
   },
+    {
+    id: 4,
+    title: "Apple Website",
+    des: "Desgined for Apple Website.",
+    link: "https://apple-clone-website-sigma.vercel.app/",
+    type: "Front-End",
+  },
+      {
+    id: 5,
+    title: "Cocktail Showcase",
+    des: "Desgined for Cocktail Showcase.",
+    link: "https://cocktail-eight-phi.vercel.app/#cocktails",
+    type: "Front-End",
+  },
+
+  
 ];
 
 export const certificates = [
