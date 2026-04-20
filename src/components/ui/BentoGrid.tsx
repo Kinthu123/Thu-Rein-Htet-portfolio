@@ -177,6 +177,14 @@ export const BentoGridItem = ({
         <h3 className={cn("font-sans font-bold text-white text-sm md:text-lg lg:text-xl leading-tight", titleClassName)}>
           {title}
         </h3>
+        {id === 2 && (
+          <a
+            href="mailto:icedevil196@gmail.com"
+            className="inline-flex items-center gap-2 mt-3 bg-brand-purple-500 hover:bg-brand-purple-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+          >
+            Connect with me ✉️
+          </a>
+        )}
       </div>
     </div>
   );

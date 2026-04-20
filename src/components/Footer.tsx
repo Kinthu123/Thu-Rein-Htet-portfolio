@@ -1,54 +1,87 @@
 import React from "react";
-import { footer} from "@/data";
-import Image from "next/image";
+import { footer } from "@/data";
+import { FaBehance, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { HiSparkles, HiDownload } from "react-icons/hi";
+
+const iconMap: Record<string, React.ReactNode> = {
+  linkedin: <FaLinkedinIn className="w-6 h-6" />,
+  behance:  <FaBehance    className="w-6 h-6" />,
+  email:    <MdEmail      className="w-7 h-7" />,
+  github:   <FaGithub     className="w-6 h-6" />,
+};
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-10 pb-5 relative overflow-hidden" id="contact">
-      {/* Background Grid */}
-      <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <Image 
-          src="/footer-grid.svg" 
-          alt="grid" 
-          className="w-full h-full opacity-50" 
-          width={100} height={100} 
-        /> 
+    <footer
+      className="w-full relative overflow-hidden"
+      id="contact"
+      style={{ background: "linear-gradient(135deg, rgba(10,1,24,0.75) 0%, rgba(30,10,60,0.70) 100%)" }}
+    >
+      {/* Subtle purple glow */}
+      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-brand-purple-600/10 blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 flex flex-col lg:flex-row gap-12 lg:gap-8 items-start relative z-10">
+
+        {/* Left — CTA */}
+        <div className="flex-1 flex flex-col gap-6">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 w-fit bg-white/5">
+            <HiSparkles className="text-brand-purple-400 w-4 h-4" />
+            <span className="text-white/60 text-sm font-medium">{footer.badge}</span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold text-white leading-snug max-w-md">
+            {footer.title}
+          </h2>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-3 mt-2">
+            <a
+              href={footer.cta.primary.href}
+              className="inline-flex items-center gap-2 bg-brand-purple-500 hover:bg-brand-purple-600 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+            >
+              👋 {footer.cta.primary.label}
+            </a>
+            <a
+              href={footer.cta.secondary.href}
+              download="Thu_Rein_Htet_Resume.pdf"
+              className="inline-flex items-center gap-2 border border-white/20 hover:border-brand-purple-400/60 text-white/70 hover:text-white font-semibold px-6 py-3 rounded-full transition-colors"
+            >
+              <HiDownload className="w-4 h-4" />
+              {footer.cta.secondary.label}
+            </a>
+          </div>
+        </div>
+
+        {/* Right — Social Grid (2×2) */}
+        <div className="flex-1 grid grid-cols-2 gap-3 w-full">
+          {footer.socials.map((social) => (
+            <a
+              key={social.id}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col gap-3 rounded-xl border border-white/10 p-5 hover:border-brand-purple-400/50 transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, rgba(10,1,24,0.9) 0%, rgba(30,10,60,0.6) 100%)" }}
+            >
+              <span className="text-white/60 group-hover:text-brand-purple-400 transition-colors">
+                {iconMap[social.icon]}
+              </span>
+              <span className="text-white/80 group-hover:text-white text-sm font-semibold transition-colors">
+                {social.label}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center px-5 md:px-10 relative z-10 max-w-7xl mx-auto">
-        
-        {/* Left Side: Title */}
-        <div className="w-full md:w-1/2 mb-10 md:mb-0">
-          <h1 className="text-4xl md:text-6xl font-bold text-white max-w-[800px] leading-tight text-center md:text-left">
-            {footer.title.split(" ").map((word, i) => (
-               <span key={i} className={i < 2 ? "text-purple-300" : "text-white/80"}>
-                 {word}{" "}
-               </span>
-            ))}
-          </h1>
-        </div>
-
-        {/* Right Side: Contact & Socials */}
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-end gap-6">
-           {/* Copyright - Top Right on Desktop */}
-           <div className="text-white/40 text-xs font-light uppercase tracking-wider order-3 md:order-1">
-             {footer.copyright}
-           </div>
-
-           {/* Contact Info */}
-           <div className="flex flex-col items-center md:items-end gap-1 order-2">
-             <p className="text-white/40 text-[10px] font-semibold tracking-widest uppercase mb-1">
-               {footer.contact.label}
-             </p>
-             <a href={`tel:${footer.contact.phone.replace(/\s+/g, '')}`} className="text-white text-base md:text-lg font-medium hover:text-purple-300 transition-colors">
-               {footer.contact.phone}
-             </a>
-             <a href={`mailto:${footer.contact.email}`} className="text-white text-base md:text-lg font-medium hover:text-purple-300 transition-colors">
-               {footer.contact.email}
-             </a>
-           </div>
-
-        </div>
+      {/* Bottom copyright */}
+      <div className="border-t border-white/10 relative z-10">
+        <p className="text-center text-white/30 text-sm py-5">
+          {footer.copyright}
+        </p>
       </div>
     </footer>
   );

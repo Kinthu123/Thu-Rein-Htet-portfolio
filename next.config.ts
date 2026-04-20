@@ -2,7 +2,9 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ["mir-s3-cdn-cf.behance.net", "api.microlink.io"],
+  },
 };
 
 export default withSentryConfig(nextConfig, {
